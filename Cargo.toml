@@ -20,7 +20,6 @@ embedded-hal = "0.2"
 libm = "0.1"
 i2cdev =  "0.6.1"
 linux-embedded-hal = "0.3"
-mqtt = "0.1.4"
 
 [dev-dependencies]
 linux-embedded-hal = "0.3"
