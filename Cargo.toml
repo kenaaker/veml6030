@@ -4,22 +4,19 @@ version = "0.1.2" # remember to update html_root_url
 authors = ["Diego Barrios Romero <eldruin@gmail.com>"]
 repository = "https://github.com/eldruin/veml6030-rs"
 license = "MIT OR Apache-2.0"
-description = "Platform-agnostic Rust driver for the VEML6030 and VEML7700 high-accuracy ambient light sensors."
+description = "Rust command for the VEML6030 high-accuracy ambient light sensor."
 readme = "README.md"
-keywords = ["als", "ambient", "light", "sensor", "embedded-hal-driver"]
 categories = ["embedded", "hardware-support", "no-std"]
-homepage = "https://github.com/eldruin/veml6030-rs"
-documentation = "https://docs.rs/veml6030"
-edition = "2018"
-
-[badges]
-coveralls = { repository = "eldruin/veml6030-rs", branch = "master", service = "github" }
+edition = "2021"
 
 [dependencies]
 embedded-hal = "0.2"
 libm = "0.1"
 i2cdev =  "0.6.1"
 linux-embedded-hal = "0.3"
+rumqttc = "0.24.0"
+pretty_env_logger = "0.4.0"
+tokio = { version = "1", features = ["full"] }
 
 [dev-dependencies]
 linux-embedded-hal = "0.3"
