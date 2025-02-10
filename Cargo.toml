@@ -1,8 +1,8 @@
 [package]
-name = "veml6030"
+name = "veml6030-cmd"
 version = "0.1.2" # remember to update html_root_url
-authors = ["Diego Barrios Romero <eldruin@gmail.com>"]
-repository = "https://github.com/eldruin/veml6030-rs"
+authors = ["Diego Barrios Romero <eldruin@gmail.com>", "Kenneth D. Aaker <kenaaker@gmail.com>]
+repository = "https://github.com/kenaaker/veml6030"
 license = "MIT OR Apache-2.0"
 description = "Rust command for the VEML6030 high-accuracy ambient light sensor."
 readme = "README.md"

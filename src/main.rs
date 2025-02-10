@@ -1,9 +1,9 @@
 
 use std::time::{Duration, Instant};
 use rumqttc::{Client, LastWill, MqttOptions, QoS};
+use veml6030::{SlaveAddr, Veml6030};
 
 use linux_embedded_hal::I2cdev;
-use veml6030::{SlaveAddr, Veml6030};
 
 fn threaded_read_lux_and_send_to_mqtt(_parm_lux:i32) {
     let dev = I2cdev::new("/dev/play/qwiic/i2c").unwrap();
@@ -17,8 +17,23 @@ fn threaded_read_lux_and_send_to_mqtt(_parm_lux:i32) {
         .set_keep_alive(Duration::from_secs(5))
         .set_last_will(will);
 
-    let (client, _connection) = Client::new(mqttoptions, 10);
+    let (client, mut connection) = Client::new(mqttoptions, 10);
+    println!("connection iterations = {}", connection.iter().count());
+
+    for (i,notification) in connection.iter().enumerate() {
+        match notification{
+            Ok(notif) => {
+                println!("{i}. Notification = {notif:?}");
+            }
+            Err(error) => {
+                println!("{i}. Error = {error:?}");
+                return;
+            }
+        }
+    }
+    println!("Connected Okay");
     sensor.enable().unwrap();
+
     loop {
         let local_lux = sensor.read_lux().unwrap();
         let payload = format!("{}", local_lux);
