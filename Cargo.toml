@@ -1,7 +1,7 @@
 [package]
 name = "veml6030-cmd"
 version = "0.1.2" # remember to update html_root_url
-authors = ["Diego Barrios Romero <eldruin@gmail.com>", "Kenneth D. Aaker <kenaaker@gmail.com>]
+authors = ["Diego Barrios Romero <eldruin@gmail.com>", "Kenneth D. Aaker <kenaaker@gmail.com>"]
 repository = "https://github.com/kenaaker/veml6030"
 license = "MIT OR Apache-2.0"
 description = "Rust command for the VEML6030 high-accuracy ambient light sensor."
@@ -17,6 +17,7 @@ linux-embedded-hal = "0.3"
 rumqttc = "0.24.0"
 pretty_env_logger = "0.4.0"
 tokio = { version = "1", features = ["full"] }
+veml6030 = "0.1.2"
 
 [dev-dependencies]
 linux-embedded-hal = "0.3"
